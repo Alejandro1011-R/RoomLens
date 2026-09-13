@@ -1,0 +1,4 @@
+# Every change to this repository needs Alejandro's review.
+# Branch protection on `main` requires a code owner approval, so a
+# review from anyone else does not satisfy the requirement.
+* @Alejandro1011-R
