@@ -1,0 +1,190 @@
+/* ============================================================
+   RoomLens — Design tokens v1.1
+   Single source of truth for colour, type, spacing and radii.
+   Drop this in as-is, or port it to tailwind.config.js.
+
+   Design principle: hairlines over shadows, air over boxes,
+   one accent colour only. The page should feel measured.
+   ============================================================ */
+
+:root {
+  /* ---- Colour: light mode (default) ----------------------- */
+  /* Neutrals are warm-biased — plaster, not pure grey. */
+  --rl-bg:          #F8F6F2;  /* page ground (Plaster)          */
+  --rl-bg-raised:   #FFFFFF;  /* panels that sit above it       */
+  --rl-bg-inset:    #EFEDE7;  /* inset blocks, image ground     */
+  --rl-line:        #E2DED5;  /* 1px hairlines — the main divider */
+  --rl-line-strong: #CBC5B8;  /* control borders, dimension rules */
+
+  --rl-ink:         #0C1421;  /* primary text (Deep Ink)        */
+  --rl-ink-soft:    #3A4354;  /* body copy, secondary text      */
+  --rl-haze:        #686F7D;  /* captions, mono labels          */
+
+  /* ---- Colour: accents ------------------------------------ */
+  /* The palette is a depth map: warm = near, cool = far.       */
+  --rl-accent:      #E8511C;  /* Aperture Orange — near field, actions */
+  --rl-accent-ink:  #BE3D0C;  /* same hue, legible as text on light (AA) */
+  --rl-accent-wash: #FAEDE6;  /* tinted ground, used sparingly  */
+  --rl-on-accent:   #0C1421;  /* text ON the accent fill — white only hits 3.7:1 */
+
+  --rl-depth:       #0C7568;  /* Depth Teal — verified measurement only */
+  --rl-depth-wash:  #E7F1EF;
+
+  /* ---- Colour: semantic (NOT a second brand accent) ------- */
+  --rl-ok:     #1F8A4C;
+  --rl-warn:   #9A6B08;
+  --rl-danger: #BC3529;
+
+  /* ---- Colour: 3D scene ----------------------------------- */
+  --rl-room-wall:   #EFEAE1;
+  --rl-room-floor:  #C7A57C;
+  --rl-room-object: #464F5D;
+  --rl-room-fabric: #E9E3D7;
+  --rl-room-dark:   #666D79;
+
+  /* ---- Typography ----------------------------------------- */
+  --rl-font-display: 'Familjen Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --rl-font-body:    'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+  --rl-font-mono:    'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* Weights: display never goes above 600. Restraint is the point. */
+  --rl-w-regular: 400;
+  --rl-w-medium:  500;
+  --rl-w-semi:    600;
+
+  /* Scale — display sizes carry negative tracking, body none */
+  --rl-t-mono:  0.70rem;  /* 11 — uppercase labels, +0.14em    */
+  --rl-t-xs:    0.82rem;  /* 13 — fine print                   */
+  --rl-t-sm:    0.93rem;  /* 15 — dense copy, list items       */
+  --rl-t-base:  1.0625rem;/* 17 — body, line-height 1.7        */
+  --rl-t-lede:  1.1rem;   /* 18 — intro paragraphs, max 50ch   */
+  --rl-t-h3:    1.22rem;  /* 20 — card / step headings         */
+  --rl-t-h2:    clamp(1.8rem, 3.6vw, 2.6rem);
+  --rl-t-h1:    clamp(2.5rem, 5.4vw, 4rem);
+
+  --rl-track-display: -0.03em;   /* tighten as size grows      */
+  --rl-track-mono:     0.14em;
+
+  /* ---- Spacing (base 4) ----------------------------------- */
+  --rl-s-1: 4px;   --rl-s-2: 8px;   --rl-s-3: 12px;  --rl-s-4: 18px;
+  --rl-s-5: 26px;  --rl-s-6: 38px;  --rl-s-7: 56px;  --rl-s-8: 80px;
+  --rl-s-9: 112px; --rl-s-10: 150px;
+  --rl-section: clamp(72px, 10vw, 132px);  /* vertical rhythm  */
+
+  /* ---- Radii ---------------------------------------------- */
+  /* Near-square corners read as drafting, not as a consumer app. */
+  --rl-r-sm: 2px;
+  --rl-r-md: 3px;
+  --rl-r-pill: 999px;   /* avatars and status dots only         */
+
+  /* ---- Elevation ------------------------------------------
+     Deliberately minimal. Structure comes from hairlines.
+     Use a shadow only for something that genuinely floats
+     (a dropdown, a modal) — never on a static card.           */
+  --rl-shadow-float: 0 2px 4px rgba(12,20,33,.06), 0 18px 44px -20px rgba(12,20,33,.22);
+
+  /* ---- Layout --------------------------------------------- */
+  --rl-max: 1120px;
+  --rl-gutter: clamp(22px, 6vw, 72px);
+  --rl-measure: 50ch;   /* never set running text wider        */
+}
+
+/* ---- Colour: dark mode ------------------------------------
+   Only tokens are redefined, never components.
+   The :not([data-theme="light"]) guard lets an explicit light
+   choice beat a dark OS setting.                              */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --rl-bg:          #0B111C;
+    --rl-bg-raised:   #121A27;
+    --rl-bg-inset:    #101724;
+    --rl-line:        #232C3B;
+    --rl-line-strong: #39445A;
+
+    --rl-ink:         #F2F0EB;
+    --rl-ink-soft:    #BFC5D1;
+    --rl-haze:        #89909E;
+
+    --rl-accent:      #FF6B35;
+    --rl-accent-ink:  #FF9264;
+    --rl-accent-wash: #291409;
+    --rl-on-accent:   #0B111C;
+
+    --rl-depth:       #31CDBA;
+    --rl-depth-wash:  #0A211E;
+
+    --rl-ok:     #4ADE80;
+    --rl-warn:   #FBBF24;
+    --rl-danger: #F87171;
+
+    --rl-room-wall:   #1C2533;
+    --rl-room-floor:  #4C3B29;
+    --rl-room-object: #2C3442;
+    --rl-room-fabric: #242E3F;
+    --rl-room-dark:   #161E2B;
+
+    --rl-shadow-float: 0 2px 4px rgba(0,0,0,.5), 0 18px 44px -20px rgba(0,0,0,.7);
+  }
+}
+
+/* Explicit dark toggle — wins over a light OS setting too */
+:root[data-theme="dark"] {
+  --rl-bg:          #0B111C;
+  --rl-bg-raised:   #121A27;
+  --rl-bg-inset:    #101724;
+  --rl-line:        #232C3B;
+  --rl-line-strong: #39445A;
+  --rl-ink:         #F2F0EB;
+  --rl-ink-soft:    #BFC5D1;
+  --rl-haze:        #89909E;
+  --rl-accent:      #FF6B35;
+  --rl-accent-ink:  #FF9264;
+  --rl-accent-wash: #291409;
+  --rl-on-accent:   #0B111C;
+  --rl-depth:       #31CDBA;
+  --rl-depth-wash:  #0A211E;
+  --rl-ok:     #4ADE80;
+  --rl-warn:   #FBBF24;
+  --rl-danger: #F87171;
+  --rl-room-wall:   #1C2533;
+  --rl-room-floor:  #4C3B29;
+  --rl-room-object: #2C3442;
+  --rl-room-fabric: #242E3F;
+  --rl-room-dark:   #161E2B;
+  --rl-shadow-float: 0 2px 4px rgba(0,0,0,.5), 0 18px 44px -20px rgba(0,0,0,.7);
+}
+
+/* ============================================================
+   Base rules that go with the tokens.
+   ============================================================ */
+body {
+  background: var(--rl-bg);
+  color: var(--rl-ink);
+  font-family: var(--rl-font-body);
+  font-size: var(--rl-t-base);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--rl-font-display);
+  font-weight: var(--rl-w-medium);
+  letter-spacing: var(--rl-track-display);
+  line-height: 1.08;
+  text-wrap: balance;
+  margin: 0;
+}
+
+/* Uppercase mono label — used for every eyebrow and data caption */
+.rl-label {
+  font-family: var(--rl-font-mono);
+  font-size: var(--rl-t-mono);
+  letter-spacing: var(--rl-track-mono);
+  text-transform: uppercase;
+  color: var(--rl-haze);
+}
+
+/* Any figure that can be compared must line up. Non-negotiable. */
+.rl-figure, table td, [data-numeric] {
+  font-variant-numeric: tabular-nums;
+}

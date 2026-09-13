@@ -1,0 +1,72 @@
+/* ============================================================
+   RoomLens — global base.
+   Tokens live in tokens.css (--rl-*). This file aliases them to
+   the short names the components use, then defines the reset,
+   typography, buttons and section rhythm. Everything else is
+   scoped inside its own component.
+   ============================================================ */
+@import './tokens.css';
+
+:root{
+  --bg:var(--rl-bg); --raised:var(--rl-bg-raised); --inset:var(--rl-bg-inset);
+  --line:var(--rl-line); --line-strong:var(--rl-line-strong);
+  --ink:var(--rl-ink); --ink-soft:var(--rl-ink-soft); --haze:var(--rl-haze);
+  --accent:var(--rl-accent); --accent-ink:var(--rl-accent-ink);
+  --accent-wash:var(--rl-accent-wash); --on-accent:var(--rl-on-accent);
+  --depth:var(--rl-depth); --depth-wash:var(--rl-depth-wash);
+  --room-wall:var(--rl-room-wall); --room-floor:var(--rl-room-floor);
+  --room-object:var(--rl-room-object); --room-fabric:var(--rl-room-fabric);
+  --room-dark:var(--rl-room-dark);
+  --f-display:var(--rl-font-display); --f-body:var(--rl-font-body); --f-mono:var(--rl-font-mono);
+  --max:var(--rl-max); --gutter:var(--rl-gutter);
+}
+
+
+*,*::before,*::after{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--f-body); font-size:17px; line-height:1.7;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+h1,h2,h3{font-family:var(--f-display); margin:0; font-weight:500; text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:1.5px solid var(--accent); outline-offset:4px; border-radius:2px}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important; transition-duration:.001ms!important}
+}
+
+.wrap{max-width:var(--max); margin-inline:auto; padding-inline:var(--gutter)}
+.label{
+  font-family:var(--f-mono); font-size:.7rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--haze);
+}
+.lede{font-size:1.1rem; line-height:1.68; color:var(--ink-soft); max-width:50ch}
+
+/* ── Actions: one filled button on the page, the rest are text ── */
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--f-body); font-size:.95rem; font-weight:500;
+  padding:14px 26px; border-radius:2px; border:1px solid transparent;
+  text-decoration:none; cursor:pointer; transition:background .2s, border-color .2s, color .2s;
+}
+.btn-primary{background:var(--accent); color:var(--on-accent)}
+.btn-primary:hover{background:var(--accent-ink)}
+.btn-quiet{
+  border-bottom:1px solid var(--line-strong); border-radius:0;
+  padding:6px 0; color:var(--ink); font-size:.95rem; font-weight:500;
+  text-decoration:none; display:inline-flex; align-items:center; gap:9px;
+  transition:border-color .2s, color .2s;
+}
+.btn-quiet:hover{border-bottom-color:var(--accent); color:var(--accent-ink)}
+
+
+/* ── Sections ─────────────────────────────────────────────── */
+section{padding-block:clamp(72px,10vw,132px)}
+.sec-head{max-width:58ch; margin-bottom:clamp(38px,5vw,64px)}
+.sec-head h2{
+  font-size:clamp(1.8rem,3.6vw,2.6rem); font-weight:500;
+  letter-spacing:-.03em; line-height:1.1; margin-block:18px 18px;
+}
+.sec-head .label{display:block}
+

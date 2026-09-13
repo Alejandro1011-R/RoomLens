@@ -1,0 +1,30 @@
+<footer>
+  <div class="wrap foot">
+    <span class="brand">Room<span class="tail">Lens</span></span>
+    <span>© 2026 RoomLens</span>
+    <nav>
+      <a href="mailto:hello@roomlens.app">hello@roomlens.app</a>
+      <a href="#top">Back to top</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+/* ── Closing ──────────────────────────────────────────────── */
+/* The footer lockup reuses the .brand lockup from the nav. Astro
+   scopes styles per component, so the nav's copy of these two rules
+   cannot reach this markup — they are repeated here verbatim, with
+   the .foot overrides that follow them in the source. */
+.brand{
+  display:flex; align-items:center; gap:11px; text-decoration:none;
+  font-family:var(--f-display); font-weight:600; font-size:1.18rem; letter-spacing:-.02em;
+}
+.brand .tail{color:var(--accent)}
+
+footer{padding-block:44px 64px; border-top:1px solid var(--line); margin-top:clamp(64px,9vw,120px)}
+.foot{display:flex; flex-wrap:wrap; gap:20px; align-items:center; color:var(--haze); font-size:.84rem}
+.foot .brand{font-size:1rem; color:var(--ink)}
+.foot nav{margin-left:auto; display:flex; gap:24px}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--ink)}
+</style>

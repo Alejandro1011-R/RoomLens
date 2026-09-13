@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="RoomLens">
+  <title>RoomLens — icon (one-point perspective room)</title>
+  <defs>
+    <clipPath id="rl-clip">
+      <rect x="6.6" y="6.6" width="34.8" height="34.8" rx="6.4"/>
+    </clipPath>
+  </defs>
+
+  <!-- Measured floor: the plane the product actually hands back -->
+  <g clip-path="url(#rl-clip)">
+    <path d="M2 46 L46 46 L34 29.5 L18.5 29.5 Z" fill="#E8511C"/>
+  </g>
+
+  <!-- Edges converging on the vanishing point -->
+  <g stroke="#0C1421" stroke-width="2.2" stroke-linecap="round" fill="none">
+    <path d="M9 9 L18.5 16.5"/>
+    <path d="M39 9 L34 16.5"/>
+    <path d="M39 39 L34 29.5"/>
+    <path d="M9 39 L18.5 29.5"/>
+  </g>
+
+  <!-- Outer frame (the lens) and back wall -->
+  <g fill="none" stroke="#0C1421" stroke-width="3" stroke-linejoin="round">
+    <rect x="5" y="5" width="38" height="38" rx="8"/>
+    <rect x="18.5" y="16.5" width="15.5" height="13" rx="2"/>
+  </g>
+</svg>

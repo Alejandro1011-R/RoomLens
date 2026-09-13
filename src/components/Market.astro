@@ -1,0 +1,62 @@
+<!-- ══ MARKET ═══════════════════════════════════════════════ -->
+<section id="market">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Go to market</span>
+      <h2>Two routes, one engine.</h2>
+      <p class="lede">We license the technology to platforms that already own the traffic, and in parallel we build the place where transparency isn't optional.</p>
+    </div>
+    <div class="gtm">
+      <article class="track">
+        <span class="kind">Route A · B2B</span>
+        <h3>Power existing platforms</h3>
+        <p>License our 3D engine to rental portals, which offer it to their listers as a verified-listing badge.</p>
+        <span class="badge3d">
+          <svg width="15" height="15" viewBox="0 0 48 48" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round">
+              <rect x="6" y="6" width="36" height="36" rx="8"/><rect x="19" y="17" width="15" height="13" rx="2"/>
+            </g>
+          </svg>
+          Verified in 3D
+        </span>
+        <ul>
+          <li>SDK and embed API integration</li>
+          <li>Revenue per processed scan plus annual licence</li>
+          <li>The portal gains trust without building a vision team</li>
+        </ul>
+        <p class="partners">Badi · Idealista · local portals</p>
+      </article>
+      <article class="track">
+        <span class="kind">Route B · B2C</span>
+        <h3>Our own marketplace</h3>
+        <p>Room owners list directly. Every listing requires a 3D scan: transparency is written into the rules, not the slogan.</p>
+        <ul>
+          <li>No scan, no published listing</li>
+          <li>Verified square metres on every listing</li>
+          <li>Fewer wasted viewings for owners and renters alike</li>
+        </ul>
+        <p class="partners">Barcelona · Madrid · university cities</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ── Go-to-market ─────────────────────────────────────────── */
+.gtm{display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,56px)}
+@media(max-width:840px){.gtm{grid-template-columns:1fr; gap:48px}}
+.track{display:flex; flex-direction:column; gap:16px; padding-top:22px; border-top:1px solid var(--ink)}
+.track .kind{font-family:var(--f-mono); font-size:.67rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink)}
+.track h3{font-size:1.4rem; font-weight:500; letter-spacing:-.025em}
+.track p{color:var(--ink-soft); font-size:.96rem; line-height:1.68}
+.track ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column}
+.track li{font-size:.93rem; color:var(--ink-soft); padding:11px 0; border-top:1px solid var(--line)}
+.track li:first-child{border-top:0; padding-top:0}
+.badge3d{
+  display:inline-flex; align-items:center; gap:9px; align-self:flex-start;
+  padding:7px 14px 7px 11px; border-radius:2px;
+  border:1px solid var(--depth); color:var(--depth);
+  font-size:.82rem; font-weight:500; letter-spacing:.01em;
+}
+.partners{font-family:var(--f-mono); font-size:.68rem; color:var(--haze); letter-spacing:.04em; margin-top:4px}
+</style>

@@ -1,0 +1,42 @@
+<!-- ══ HOW IT WORKS ═════════════════════════════════════════ -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">How it works</span>
+      <h2>From any phone to a walkable model.</h2>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <span class="n">01 — CAPTURE</span>
+        <h3>Guided photo checklist</h3>
+        <p>The room owner walks the space following on-screen framing prompts. The app flags missing coverage and blurry shots before upload.</p>
+        <p class="meta">No LiDAR · no tripod<br>~4 minutes</p>
+      </article>
+      <article class="step">
+        <span class="n">02 — RECONSTRUCTION</span>
+        <h3>AI 3D reconstruction</h3>
+        <p>Our computer vision pipeline estimates pose, depth and geometry, returning a textured mesh at metric scale with its dimensioned floor plan.</p>
+        <p class="meta">Cloud processing<br>Real metres</p>
+      </article>
+      <article class="step">
+        <span class="n">03 — WALKTHROUGH</span>
+        <h3>Published walkthrough</h3>
+        <p>The model is embedded in the listing. Renters step in, look around, measure and decide before booking a train, a bus or a flight.</p>
+        <p class="meta">Web · mobile<br>VR</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ── Steps ────────────────────────────────────────────────── */
+.steps{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(28px,4vw,56px)}
+@media(max-width:880px){.steps{grid-template-columns:1fr; gap:0}}
+.step{padding-top:22px; border-top:1px solid var(--ink)}
+@media(max-width:880px){.step{padding-block:26px 30px; border-top:1px solid var(--line)}
+  .step:first-child{border-top:1px solid var(--ink)}}
+.step .n{font-family:var(--f-mono); font-size:.68rem; letter-spacing:.14em; color:var(--accent-ink)}
+.step h3{font-size:1.22rem; font-weight:500; letter-spacing:-.02em; margin-block:16px 12px}
+.step p{color:var(--ink-soft); font-size:.95rem; line-height:1.65}
+.step .meta{margin-top:20px; font-family:var(--f-mono); font-size:.66rem; letter-spacing:.08em; color:var(--haze); text-transform:uppercase; line-height:1.6}
+</style>

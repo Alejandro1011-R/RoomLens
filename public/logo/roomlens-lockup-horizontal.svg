@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 48" width="208" height="48" role="img" aria-label="RoomLens">
+  <title>RoomLens — horizontal lockup</title>
+  <!--
+    NOTE FOR ENGINEERING / PRINT
+    Wordmark: Familjen Grotesk 600, tracking -0.03em.
+    This file uses <text> so the team can preview it instantly.
+    Before any FINAL use (app stores, press, merch), convert the
+    text to outlines (Illustrator/Figma: "Outline stroke / Flatten")
+    so the lockup no longer depends on the font being installed.
+  -->
+  <defs>
+    <clipPath id="rl-lk-clip">
+      <rect x="6.6" y="6.6" width="34.8" height="34.8" rx="6.4"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#rl-lk-clip)">
+    <path d="M2 46 L46 46 L34 29.5 L18.5 29.5 Z" fill="#E8511C"/>
+  </g>
+  <g stroke="#0C1421" stroke-width="2.2" stroke-linecap="round" fill="none">
+    <path d="M9 9 L18.5 16.5"/>
+    <path d="M39 9 L34 16.5"/>
+    <path d="M39 39 L34 29.5"/>
+    <path d="M9 39 L18.5 29.5"/>
+  </g>
+  <g fill="none" stroke="#0C1421" stroke-width="3" stroke-linejoin="round">
+    <rect x="5" y="5" width="38" height="38" rx="8"/>
+    <rect x="18.5" y="16.5" width="15.5" height="13" rx="2"/>
+  </g>
+
+  <text x="60" y="32.5"
+        font-family="'Familjen Grotesk','Helvetica Neue',Arial,sans-serif"
+        font-size="27" font-weight="600" letter-spacing="-0.75" fill="#0C1421">Room<tspan fill="#E8511C">Lens</tspan></text>
+</svg>

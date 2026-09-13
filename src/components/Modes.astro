@@ -1,0 +1,36 @@
+<!-- ══ TWO MODES ════════════════════════════════════════════ -->
+<section id="modes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">The experience</span>
+      <h2>Two ways to step into the room.</h2>
+    </div>
+    <div class="modes">
+      <article class="mode">
+        <span class="tagline">Mode 1 · Any device</span>
+        <h3>Explore from wherever you are</h3>
+        <p>Rotate, zoom and walk through the room from a phone or a laptop, right inside the listing. Nothing to install.</p>
+        <div class="devices"><span>iOS</span><span>Android</span><span>Browser</span></div>
+      </article>
+      <article class="mode vr">
+        <span class="tagline">Mode 2 · Immersive</span>
+        <h3>Step inside with VR</h3>
+        <p>With a headset the room appears life-size. You feel whether you can stand beside the bed and squeeze past the desk. A photo can't tell you that.</p>
+        <div class="devices"><span>WebXR</span><span>Meta Quest</span><span>1:1 scale</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ── Two modes ────────────────────────────────────────────── */
+.modes{display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,56px)}
+@media(max-width:840px){.modes{grid-template-columns:1fr; gap:44px}}
+.mode{display:flex; flex-direction:column; gap:14px; padding-top:22px; border-top:1px solid var(--line)}
+.mode.vr{border-top-color:var(--depth)}
+.mode h3{font-size:1.4rem; font-weight:500; letter-spacing:-.025em}
+.mode p{color:var(--ink-soft); font-size:.96rem; line-height:1.68}
+.mode .tagline{font-family:var(--f-mono); font-size:.67rem; letter-spacing:.12em; text-transform:uppercase; color:var(--haze)}
+.mode.vr .tagline{color:var(--depth)}
+.devices{display:flex; flex-wrap:wrap; gap:18px; margin-top:6px; font-family:var(--f-mono); font-size:.68rem; color:var(--haze)}
+</style>

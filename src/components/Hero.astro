@@ -1,0 +1,104 @@
+---
+/**
+ * Hero — the headline claim next to the live reconstruction.
+ *
+ * The canvas is deliberately plain, static markup: Astro's scoped styles are
+ * applied at build time and never reach nodes that JavaScript creates later,
+ * so everything three.js needs to attach to already exists in the HTML.
+ * The scene itself is wired up in src/scripts/scenes.ts.
+ */
+---
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="label">3D computer vision · Room rentals</p>
+      <h1>Walk through any room <em>before</em> <span class="thin">you ever leave home.</span></h1>
+      <p class="lede">
+        RoomLens turns ordinary listing photos into a navigable 3D model.
+        No laser scanner, no special gear — the room owner follows a guided
+        photo checklist and our AI rebuilds the space at true scale.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">Request a demo</a>
+        <a class="btn-quiet" href="#gap">See the reality gap <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-stats">
+        <div><b>~14</b><span>photos per room</span></div>
+        <div><b>€0</b><span>extra hardware</span></div>
+        <div><b>±3 cm</b><span>target accuracy</span></div>
+      </div>
+    </div>
+
+    <div class="viewer">
+      <div class="viewer-bar">
+        <span class="live">Reconstructed model</span>
+        <span class="right">scan_0412 · barcelona</span>
+      </div>
+      <canvas class="stage" id="heroStage" width="1100" height="800"
+              aria-label="3D model of a rental room. Drag to orbit the view."
+              tabindex="0" role="img"></canvas>
+      <div class="hud">
+        <span class="chip">2.40 × 2.90 × 2.55 m · 6.9 m²</span>
+        <span class="chip hint" id="heroHint">Drag to look around</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Hero ─────────────────────────────────────────────────── */
+  .hero{padding-block:clamp(56px,9vw,116px) clamp(56px,9vw,120px)}
+  .hero-grid{
+    display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+    gap:clamp(36px,5vw,72px); align-items:center;
+  }
+  @media(max-width:980px){.hero-grid{grid-template-columns:1fr; gap:44px}}
+  h1{
+    font-size:clamp(2.5rem,5.4vw,4rem); font-weight:500;
+    letter-spacing:-.035em; line-height:1.03; margin-block:26px 26px;
+  }
+  h1 em{font-style:normal; color:var(--accent)}
+  h1 .thin{color:var(--haze)}
+  .hero-cta{display:flex; flex-wrap:wrap; gap:28px; align-items:center; margin-top:38px}
+  .hero-stats{
+    display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px;
+    margin-top:48px; padding-top:24px; border-top:1px solid var(--line);
+  }
+  .hero-stats b{
+    display:block; font-family:var(--f-display); font-size:1.5rem; font-weight:500;
+    letter-spacing:-.02em; font-variant-numeric:tabular-nums; line-height:1.2;
+  }
+  .hero-stats span{
+    display:block; margin-top:5px; font-family:var(--f-mono); font-size:.68rem;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--haze); line-height:1.5;
+  }
+
+  /* ── 3D viewer ────────────────────────────────────────────── */
+  .viewer{position:relative; border:1px solid var(--line); border-radius:3px; background:var(--raised); overflow:hidden}
+  .viewer-bar{
+    display:flex; align-items:center; gap:12px; padding:13px 18px;
+    border-bottom:1px solid var(--line);
+    font-family:var(--f-mono); font-size:.67rem; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--haze);
+  }
+  .live{display:inline-flex; align-items:center; gap:8px; color:var(--depth)}
+  /* The pulse is the only ambient motion in the hero; the global
+     prefers-reduced-motion rule in global.css stills it. */
+  .live::before{
+    content:""; width:5px; height:5px; border-radius:999px; background:var(--depth);
+    animation:pulse 2.8s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+  .viewer-bar .right{margin-left:auto}
+  canvas.stage{display:block; width:100%; height:auto; touch-action:none; cursor:grab}
+  canvas.stage:active{cursor:grabbing}
+  .hud{position:absolute; left:18px; right:18px; bottom:18px; display:flex; gap:10px; align-items:center; pointer-events:none}
+  .chip{
+    font-family:var(--f-mono); font-size:.67rem; letter-spacing:.06em;
+    padding:6px 12px; border-radius:2px; border:1px solid var(--line);
+    background:color-mix(in srgb,var(--raised) 90%,transparent);
+    backdrop-filter:blur(6px); color:var(--ink-soft); white-space:nowrap;
+  }
+  .chip.hint{margin-left:auto; border-color:transparent; background:none; color:var(--haze)}
+</style>

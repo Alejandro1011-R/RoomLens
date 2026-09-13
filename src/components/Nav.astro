@@ -1,0 +1,58 @@
+<!-- ══ NAV ══════════════════════════════════════════════════ -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <svg width="27" height="27" viewBox="0 0 48 48" aria-hidden="true">
+        <defs><clipPath id="nv"><rect x="6.6" y="6.6" width="34.8" height="34.8" rx="6.4"/></clipPath></defs>
+        <g clip-path="url(#nv)"><path d="M2 46 L46 46 L34 29.5 L18.5 29.5 Z" fill="var(--accent)"/></g>
+        <g stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none">
+          <path d="M9 9 L18.5 16.5"/><path d="M39 9 L34 16.5"/>
+          <path d="M39 39 L34 29.5"/><path d="M9 39 L18.5 29.5"/>
+        </g>
+        <g fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round">
+          <rect x="5" y="5" width="38" height="38" rx="8"/>
+          <rect x="18.5" y="16.5" width="15.5" height="13" rx="2"/>
+        </g>
+      </svg>
+      Room<span class="tail">Lens</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#gap">The problem</a>
+      <a href="#how">How it works</a>
+      <a href="#modes">Experience</a>
+      <a href="#market">Market</a>
+      <a href="#team">Team</a>
+    </nav>
+    <button class="theme-btn" id="theme" aria-label="Switch between light and dark theme">◐</button>
+    <a class="btn btn-primary" href="#contact">Request a demo</a>
+  </div>
+</header>
+
+<style>
+/* ── Navigation ───────────────────────────────────────────── */
+.nav{
+  position:sticky; top:0; z-index:40;
+  backdrop-filter:blur(12px);
+  background:color-mix(in srgb,var(--bg) 86%,transparent);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex; align-items:center; gap:32px; height:72px}
+.brand{
+  display:flex; align-items:center; gap:11px; text-decoration:none;
+  font-family:var(--f-display); font-weight:600; font-size:1.18rem; letter-spacing:-.02em;
+}
+.brand .tail{color:var(--accent)}
+.nav-links{display:flex; gap:30px; margin-left:auto; font-size:.9rem; color:var(--ink-soft)}
+.nav-links a{text-decoration:none; padding-bottom:3px; border-bottom:1px solid transparent}
+.nav-links a:hover{border-bottom-color:var(--accent)}
+@media(max-width:900px){.nav-links{display:none}}
+.theme-btn{
+  margin-left:auto; width:32px; height:32px; border-radius:2px;
+  border:1px solid var(--line); background:transparent; color:var(--haze);
+  cursor:pointer; display:grid; place-items:center; font-size:.9rem; flex:none;
+}
+.theme-btn:hover{color:var(--ink); border-color:var(--line-strong)}
+@media(min-width:901px){.theme-btn{margin-left:0}}
+.nav .btn-primary{padding:10px 20px; font-size:.88rem}
+@media(max-width:600px){.nav .btn-primary{display:none}}
+</style>

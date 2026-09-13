@@ -1,0 +1,26 @@
+<!-- ══ CLOSER ═══════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="wrap closer">
+    <div>
+      <h2>So the room you rent is the room you see.</h2>
+      <p>Running a rental platform, or managing rooms? Write to us and we'll scan one with you.</p>
+    </div>
+    <div class="acts">
+      <a class="btn btn-primary" href="mailto:hello@roomlens.app">Request a demo</a>
+      <a class="btn-quiet" href="mailto:partners@roomlens.app">Talk partnerships <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ── Closing ──────────────────────────────────────────────── */
+.closer{
+  border-top:1px solid var(--ink); padding-top:clamp(40px,6vw,72px);
+  display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);
+  gap:clamp(28px,5vw,64px); align-items:end;
+}
+@media(max-width:840px){.closer{grid-template-columns:1fr; gap:32px; align-items:start}}
+.closer h2{font-size:clamp(1.9rem,4vw,2.9rem); font-weight:500; letter-spacing:-.035em; line-height:1.08; max-width:15ch}
+.closer p{color:var(--ink-soft); margin-top:18px; max-width:44ch; font-size:1.02rem}
+.closer .acts{display:flex; flex-direction:column; gap:20px; align-items:flex-start}
+</style>

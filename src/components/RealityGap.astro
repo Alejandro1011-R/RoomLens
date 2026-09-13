@@ -1,0 +1,117 @@
+---
+/**
+ * Reality gap — the argument the whole product rests on.
+ *
+ * Left: the same room shot from the same spot, with only the focal length
+ * changing. Right: the dimensioned plan RoomLens hands back, drawn as inline
+ * SVG so it inherits the theme tokens directly (no JS, no asset request).
+ * The focal-length scene and slider live in src/scripts/scenes.ts.
+ */
+---
+
+<section id="gap">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">The problem</span>
+      <h2>The room never has the space it promised.</h2>
+      <p class="lede">
+        A 14 mm wide-angle lens doesn't lie about what's in the room — it lies
+        about how much fits. Drag the focal length and watch the same 6.9 m²
+        room change size without a single piece of furniture moving.
+      </p>
+    </div>
+
+    <div class="gap-grid">
+      <div class="lens-panel">
+        <div class="viewer-bar">
+          <span>Same room · same camera position</span>
+        </div>
+        <canvas class="stage" id="lensStage" width="1100" height="720"
+                style="cursor:default" role="img"
+                aria-label="Interior view of the room; its apparent size changes with focal length."></canvas>
+        <div class="lens-controls">
+          <div class="lens-row">
+            <span class="f" id="focalVal">16</span><span class="u">mm</span>
+            <span class="tag" id="focalName">Ultra wide-angle</span>
+          </div>
+          <input type="range" id="focal" min="14" max="50" step="1" value="16"
+                 aria-label="Lens focal length, in millimetres" />
+          <div class="ticks"><span>14</span><span>24</span><span>35</span><span>50 mm</span></div>
+          <div class="readout">
+            <div class="fake"><span class="k">Looks like</span><span class="v" id="fakeArea">13.7 m²</span></div>
+            <div class="true"><span class="k">Actually measures</span><span class="v">6.9 m²</span></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="plan">
+        <h3>What RoomLens hands back</h3>
+        <span class="label">Scaled plan · metres</span>
+        <svg viewBox="0 0 300 292" role="img" aria-label="Dimensioned floor plan: room of 2.40 by 2.90 metres, 6.9 square metres usable.">
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--haze)">
+            <rect x="58" y="44" width="184" height="196" fill="var(--raised)" stroke="var(--ink)" stroke-width="2"/>
+            <rect x="112" y="40" width="76" height="8" fill="var(--depth-wash)" stroke="var(--depth)" stroke-width="2"/>
+            <path d="M58 208 L58 168 A40 40 0 0 0 98 208" fill="none" stroke="var(--line-strong)" stroke-width="1" stroke-dasharray="3 3"/>
+            <line x1="58" y1="168" x2="58" y2="208" stroke="var(--raised)" stroke-width="4"/>
+            <rect x="66" y="68" width="58" height="118" fill="none" stroke="var(--accent)" stroke-width="1.2"/>
+            <text x="95" y="131" text-anchor="middle" fill="var(--accent-ink)">bed</text>
+            <rect x="160" y="54" width="74" height="34" fill="none" stroke="var(--line-strong)" stroke-width="1.2"/>
+            <text x="197" y="75" text-anchor="middle">desk</text>
+            <rect x="186" y="182" width="48" height="52" fill="none" stroke="var(--line-strong)" stroke-width="1.2"/>
+            <text x="210" y="212" text-anchor="middle">wardrobe</text>
+            <line x1="58" y1="264" x2="242" y2="264" stroke="var(--line-strong)" stroke-width="1"/>
+            <line x1="58" y1="259" x2="58" y2="269" stroke="var(--line-strong)" stroke-width="1"/>
+            <line x1="242" y1="259" x2="242" y2="269" stroke="var(--line-strong)" stroke-width="1"/>
+            <text x="150" y="281" text-anchor="middle" fill="var(--ink-soft)">2.40 m</text>
+            <line x1="32" y1="44" x2="32" y2="240" stroke="var(--line-strong)" stroke-width="1"/>
+            <line x1="27" y1="44" x2="37" y2="44" stroke="var(--line-strong)" stroke-width="1"/>
+            <line x1="27" y1="240" x2="37" y2="240" stroke="var(--line-strong)" stroke-width="1"/>
+            <text x="20" y="142" text-anchor="middle" fill="var(--ink-soft)" transform="rotate(-90 20 142)">2.90 m</text>
+            <text x="150" y="24" text-anchor="middle" fill="var(--depth)" font-size="14">6.9 m² usable</text>
+          </g>
+        </svg>
+        <p class="plan-note">
+          Every verified listing ships with a <strong>dimensioned plan, ceiling height and volume</strong>.
+          What you see is what you sign for.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Reality gap ──────────────────────────────────────────── */
+  .gap-grid{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr); gap:clamp(28px,4vw,52px); align-items:start}
+  @media(max-width:920px){.gap-grid{grid-template-columns:1fr}}
+  .lens-panel{border:1px solid var(--line); border-radius:3px; overflow:hidden; background:var(--raised)}
+  .lens-controls{padding:26px 28px 28px; border-top:1px solid var(--line)}
+  .lens-row{display:flex; align-items:baseline; gap:9px; margin-bottom:18px}
+  .lens-row .f{font-family:var(--f-display); font-weight:500; font-size:1.7rem; font-variant-numeric:tabular-nums; letter-spacing:-.03em}
+  .lens-row .u{font-family:var(--f-mono); font-size:.78rem; color:var(--haze)}
+  .lens-row .tag{margin-left:auto; font-family:var(--f-mono); font-size:.67rem; letter-spacing:.1em; text-transform:uppercase; color:var(--haze)}
+  input[type=range]{width:100%; accent-color:var(--accent); height:24px; margin:0}
+  .ticks{display:flex; justify-content:space-between; font-family:var(--f-mono); font-size:.64rem; color:var(--haze); margin-top:2px}
+  .readout{display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:28px; padding-top:24px; border-top:1px solid var(--line)}
+  .readout .k{display:block; font-family:var(--f-mono); font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; color:var(--haze)}
+  .readout .v{display:block; margin-top:7px; font-family:var(--f-display); font-weight:500; font-size:1.75rem; letter-spacing:-.03em; font-variant-numeric:tabular-nums; line-height:1}
+  .readout .fake .v{color:var(--accent)}
+  .readout .true .v{color:var(--depth)}
+
+  /* The viewer chrome is shared with the hero, but Astro scopes styles per
+     component, so the two rules the lens panel actually uses are repeated
+     here rather than reached for across the component boundary. */
+  .viewer-bar{
+    display:flex; align-items:center; gap:12px; padding:13px 18px;
+    border-bottom:1px solid var(--line);
+    font-family:var(--f-mono); font-size:.67rem; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--haze);
+  }
+  canvas.stage{display:block; width:100%; height:auto; touch-action:none}
+
+  /* ── Floor plan ───────────────────────────────────────────── */
+  .plan h3{font-size:1.05rem; font-weight:500; letter-spacing:-.01em}
+  .plan svg{width:100%; height:auto; margin-block:22px}
+  .plan-note{font-size:.92rem; color:var(--ink-soft); line-height:1.65}
+  .plan-note strong{font-weight:500; color:var(--ink)}
+  .plan .label{display:block; margin-top:8px}
+</style>
