@@ -56,10 +56,10 @@ export const TEAM: TeamMember[] = [
     initials: 'AR',
   },
   {
-    // Photo pending — add `photo: '<file>.jpg'` once it lands in public/team/.
     name: 'Alizhan Nurakhmetov',
     role: 'CIO',
     bio: 'Information systems and data: how what we capture is stored, governed and served.',
+    photo: 'alizhan-nurakhmetov.jpeg',
     initials: 'AN',
   },
   {
@@ -77,10 +77,10 @@ export const TEAM: TeamMember[] = [
     initials: 'K',
   },
   {
-    // Photo pending — add `photo: '<file>.jpg'` once it lands in public/team/.
     name: 'Daniel',
     role: 'Lead Full Stack Developer',
     bio: 'End-to-end delivery: the capture app, the web viewer and the services behind them.',
+    photo: 'daniel.jpg',
     initials: 'D',
   },
 ];
