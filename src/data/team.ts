@@ -61,15 +61,15 @@ export const TEAM: TeamMember[] = [
     initials: 'MM',
   },
   {
-    name: 'Ken',
+    name: 'Ken Thaw Zin',
     role: 'Business Development Adviser & Co-Founder',
     photo: 'ken.png',
-    initials: 'K',
+    initials: 'KT',
   },
   {
-    name: 'Daniel',
+    name: 'Daniel Cardenas',
     role: 'Lead Full Stack Developer & Co-Founder',
     photo: 'daniel.jpg',
-    initials: 'D',
+    initials: 'DC',
   },
 ];
