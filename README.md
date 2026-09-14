@@ -70,12 +70,15 @@ From the brand book, and worth keeping if you improvise something new:
 
 1. **Hairlines over shadows, air over boxes.** Structure comes from 1 px rules
    and whitespace. Static cards get no shadow. Radius stays at 2–3 px.
-2. **One accent colour.** Aperture Orange is the only loud thing on the page.
-   Depth Teal is not a second accent — it means "verified", nothing else.
+2. **One accent colour.** Cobalt Blue is the only loud thing on the page.
+   Depth Green is not a second accent — it means "verified", nothing else.
 3. **Weight is restraint.** Display type never exceeds 600.
 
-The primary button is dark ink on orange, never white — white on `#E8511C`
-reaches only 3.7 : 1 and fails AA at button size. Use the `--on-accent` token.
+The primary button is white on cobalt: white on `#1B51CC` reaches 6.8 : 1, so
+it clears AA comfortably. This inverts the old orange rule, where white managed
+only 3.7 : 1 and the button had to use dark ink. Either way, read the colour
+from the `--on-accent` token rather than hardcoding it — it flips to dark ink in
+dark mode, where the accent lightens to `#5A8CF5`.
 
 `public/brandbook.html` carries the full kit: palette, type, voice, components
 and the definition of done.

@@ -21,14 +21,17 @@
   --rl-haze:        #686F7D;  /* captions, mono labels          */
 
   /* ---- Colour: accents ------------------------------------ */
-  /* The palette is a depth map: warm = near, cool = far.       */
-  --rl-accent:      #E8511C;  /* Aperture Orange — near field, actions */
-  --rl-accent-ink:  #BE3D0C;  /* same hue, legible as text on light (AA) */
-  --rl-accent-wash: #FAEDE6;  /* tinted ground, used sparingly  */
-  --rl-on-accent:   #0C1421;  /* text ON the accent fill — white only hits 3.7:1 */
+  /* Two cool signals, told apart by hue rather than by warmth:
+     cobalt is the instrument and its actions, green is a figure
+     that has actually been measured. Keep them 60deg+ apart —
+     they are read side by side in the reality-gap readout.     */
+  --rl-accent:      #1B51CC;  /* Cobalt Blue — instrument, actions      */
+  --rl-accent-ink:  #17429E;  /* same hue deepened — text + hover (8.4:1) */
+  --rl-accent-wash: #EAEFFB;  /* tinted ground, used sparingly  */
+  --rl-on-accent:   #FFFFFF;  /* text ON the accent fill — 6.8:1, clears AA */
 
-  --rl-depth:       #0C7568;  /* Depth Teal — verified measurement only */
-  --rl-depth-wash:  #E7F1EF;
+  --rl-depth:       #107F52;  /* Depth Green — verified measurement only */
+  --rl-depth-wash:  #E6F2EA;
 
   /* ---- Colour: semantic (NOT a second brand accent) ------- */
   --rl-ok:     #1F8A4C;
@@ -105,13 +108,13 @@
     --rl-ink-soft:    #BFC5D1;
     --rl-haze:        #89909E;
 
-    --rl-accent:      #FF6B35;
-    --rl-accent-ink:  #FF9264;
-    --rl-accent-wash: #291409;
+    --rl-accent:      #5A8CF5;
+    --rl-accent-ink:  #8FB2FF;
+    --rl-accent-wash: #0E1B36;
     --rl-on-accent:   #0B111C;
 
-    --rl-depth:       #31CDBA;
-    --rl-depth-wash:  #0A211E;
+    --rl-depth:       #3FCF96;
+    --rl-depth-wash:  #0A2018;
 
     --rl-ok:     #4ADE80;
     --rl-warn:   #FBBF24;
@@ -137,12 +140,12 @@
   --rl-ink:         #F2F0EB;
   --rl-ink-soft:    #BFC5D1;
   --rl-haze:        #89909E;
-  --rl-accent:      #FF6B35;
-  --rl-accent-ink:  #FF9264;
-  --rl-accent-wash: #291409;
+  --rl-accent:      #5A8CF5;
+  --rl-accent-ink:  #8FB2FF;
+  --rl-accent-wash: #0E1B36;
   --rl-on-accent:   #0B111C;
-  --rl-depth:       #31CDBA;
-  --rl-depth-wash:  #0A211E;
+  --rl-depth:       #3FCF96;
+  --rl-depth-wash:  #0A2018;
   --rl-ok:     #4ADE80;
   --rl-warn:   #FBBF24;
   --rl-danger: #F87171;

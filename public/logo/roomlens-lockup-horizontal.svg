@@ -15,7 +15,7 @@
   </defs>
 
   <g clip-path="url(#rl-lk-clip)">
-    <path d="M2 46 L46 46 L34 29.5 L18.5 29.5 Z" fill="#E8511C"/>
+    <path d="M2 46 L46 46 L34 29.5 L18.5 29.5 Z" fill="#1B51CC"/>
   </g>
   <g stroke="#0C1421" stroke-width="2.2" stroke-linecap="round" fill="none">
     <path d="M9 9 L18.5 16.5"/>
@@ -30,5 +30,5 @@
 
   <text x="60" y="32.5"
         font-family="'Familjen Grotesk','Helvetica Neue',Arial,sans-serif"
-        font-size="27" font-weight="600" letter-spacing="-0.75" fill="#0C1421">Room<tspan fill="#E8511C">Lens</tspan></text>
+        font-size="27" font-weight="600" letter-spacing="-0.75" fill="#0C1421">Room<tspan fill="#1B51CC">Lens</tspan></text>
 </svg>
