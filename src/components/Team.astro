@@ -41,7 +41,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
               />
             </div>
           ) : (
-            /* No photo yet: same 4:3 box, initials on the inset ground.
+            /* No photo yet: same square box, initials on the inset ground.
                Decoration only — the name is in the heading below. */
             <div class="portrait portrait-pending">
               <span class="initials" aria-hidden="true">{member.initials}</span>
@@ -50,7 +50,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
           <span class="role">{member.role}</span>
           <h3>{member.name}</h3>
-          <p>{member.bio}</p>
           {!member.photo && <span class="pending">photo pending</span>}
         </article>
       ))}
@@ -62,8 +61,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   /* ── Team ─────────────────────────────────────────────────
      Ported verbatim from landing.html, with `.member canvas`
      re-pointed at the `.portrait` container that now holds an
-     <img>. Same 4:3 box, same --inset ground, same hairline,
-     2px radius and 18px gap below.                            */
+     <img>. Square 1:1 box on the same --inset ground, same
+     hairline, 2px radius and 18px gap below.                  */
   .team {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -80,7 +79,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   .member .portrait {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
     display: block;
     border: 1px solid var(--line);
     border-radius: 2px;
@@ -110,9 +109,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     color: var(--haze);
   }
 
+  /* Two lines reserved: the longest titles wrap, and without this the
+     names sit at different heights from one grid cell to the next. */
   .member .role {
+    display: block;
+    min-height: 2.4em;
     font-family: var(--f-mono);
     font-size: .65rem;
+    line-height: 1.2;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--accent-ink);
@@ -121,13 +125,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     font-size: 1.12rem;
     font-weight: 500;
     letter-spacing: -.015em;
-    margin-top: 9px;
-  }
-  .member p {
-    font-size: .9rem;
-    color: var(--haze);
-    line-height: 1.6;
-    margin-top: 8px;
+    margin-top: 4px;
   }
   .member .pending {
     align-self: flex-start;
