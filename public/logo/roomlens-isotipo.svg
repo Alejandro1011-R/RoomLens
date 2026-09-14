@@ -8,7 +8,7 @@
 
   <!-- Measured floor: the plane the product actually hands back -->
   <g clip-path="url(#rl-clip)">
-    <path d="M2 46 L46 46 L34 29.5 L18.5 29.5 Z" fill="#E8511C"/>
+    <path d="M2 46 L46 46 L34 29.5 L18.5 29.5 Z" fill="#1B51CC"/>
   </g>
 
   <!-- Edges converging on the vanishing point -->
